@@ -34,10 +34,10 @@ struct co* current_co();
 static inline void stack_switch_call(void *sp, void *entry, uintptr_t arg) {
     asm volatile (
 #if __x86_64__
-    "movq %0, %%rsp; call *%1"
+    "movq %0, %%rsp; andq $-16, %%rsp; call *%1"
       : : "r"((uintptr_t)sp), "r"(entry), "D"(arg) : "memory"
 #else
-    "movl %0, %%esp; pushl %2; call *%1"
+    "movl %0, %%esp; andl $-16, %%esp; pushl %2; call *%1"
       : : "r"((uintptr_t)sp), "r"(entry), "r"(arg) : "memory"
 #endif
     );
