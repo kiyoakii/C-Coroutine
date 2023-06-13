@@ -1,5 +1,5 @@
 # C-Coroutine
-This is a C coroutine lib.
+This is a C coroutine lib. It was an [OS course lab](http://jyywiki.cn/OS/2022/labs/M2) designed by Yanyan Jiang.
 
 Test it by
 ```bash
